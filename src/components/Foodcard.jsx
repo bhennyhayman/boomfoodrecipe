@@ -6,9 +6,9 @@ const Foodcard = ({food}) => {
 
  
   return (
-    <div className='w-vw mx-[15%] mb-5'>
+    <div className='w-vw mb-5'>
        <div className="bg-gray-100 flex flex-col">
-        <div className="p-2 text-[18px] text-center font-medium text-fuchsia-800">{food.strMeal}</div>
+        <div className="p-2 text-[18px] text-center font-bold text-fuchsia-800">{food.strMeal}</div>
         <img className="h-70 w-70 p-1 mb-2 rounded-[10px] mx-auto" src={food.strMealThumb} alt="img"/>
 
         <div className='flex items-center gap-5 mx-auto max-sm:text-[15px]'>
