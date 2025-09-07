@@ -1,0 +1,15 @@
+import React from 'react'
+
+const Footer = () => {
+  return (
+    <div className='w-vw h-60 mt-10 bg-cyan-800 text-white'>
+      <footer className='flex flex-col text-center'>
+      <div className="mt-20">Copyright @2025</div> 
+      <p>A food recipe website</p>
+      <h4 className="">Ben - Boom projects</h4>
+    </footer>
+    </div>
+  )
+}
+
+export default Footer
