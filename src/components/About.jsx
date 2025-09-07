@@ -17,7 +17,7 @@ const About = () => {
       <li className='bg-gray-100 my-2 italic  px-2'>Get inspired by cuisines from different countries and cultures.</li>
       <li className='bg-gray-100 my-2 italic px-2'>Contact us for suggestions, feedback, or to share your own recipes!</li>
     </ul>
-    <h3 className="mx-[8%] mt-10 text-center bg-cyan-700 px-2 py-2 text-white">
+    <h3 className="mx-[8%] mt-10 mb-5 text-center bg-cyan-700 px-2 py-2 text-white">
       Our mission is to make cooking fun, easy, and accessible for everyone. Happy cooking!
     </h3>
   </div>
