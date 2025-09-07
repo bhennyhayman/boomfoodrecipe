@@ -7,11 +7,7 @@ import { useState } from 'react';
 
 
 function App() {
-   const [dishes, setDishes] = useState(()=>{
-    const cached = sessionStorage.getItem("dishes");
-    if(cached) return (JSON.parse(cached));
-    return [];
-   });
+   const [dishes, setDishes] = useState([]);
   return (
     <>
       <Routes>

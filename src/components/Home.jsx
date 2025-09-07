@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import SearchBar from './SearchBar'
-import axios from "axios"
 import Foodcard from './Foodcard'
 import Footer from './Footer'
+import getUniqueRandomMeals from '../utils/fetchMeals'
 
 const Home = ({dishes,setDishes}) => {
   // const [error,setError] = useState("");
@@ -17,26 +17,10 @@ const Home = ({dishes,setDishes}) => {
       } catch (e) {
         console.log(e);
         sessionStorage.removeItem("dishes");
-      }
     }
-
-     const getRandomMeals = async () => {
-      try {
-        // 10 parallel requests
-        const requests = Array.from({ length: 10 }, () =>
-          axios.get(import.meta.env.VITE_MEALS_API)
-        );
-        const responses = await Promise.all(requests);
+    }
     
-        const data = responses.map(res => res.data?.meals?.[0] ?? res.data);
-        setDishes(data);
-        sessionStorage.setItem("dishes", JSON.stringify(data));
-      } catch (err) {
-        console.error("Error fetching meals:", err);
-      }
-    };
-
-    getRandomMeals();
+    getUniqueRandomMeals(10, setDishes);
   },[])
 
   return (
