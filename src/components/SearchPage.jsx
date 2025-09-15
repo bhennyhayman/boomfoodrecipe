@@ -27,7 +27,6 @@ export default function SearchPage() {
     fetchSearchResults();
   },[])
 
-  console.log(results)
 
   return (
     <div>
