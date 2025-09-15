@@ -13,9 +13,9 @@ const Recipe = () => {
 
   useEffect(()=>{
    const cached = sessionStorage.getItem('meal');
-   if(cached){
-    return setMealDetails(JSON.parse(cached));
-   }
+  if (cached && cached !== "undefined") {
+    setMealDetails(JSON.parse(cached));
+  }
   },[])
 
 
