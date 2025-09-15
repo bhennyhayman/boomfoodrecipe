@@ -38,13 +38,12 @@ const Recipe = () => {
        {mealDetails && <>
         {mealDetails.map((item)=> 
         <div key={item.idMeal}>
-        <div className='flex items-center justify-center'>
-           <div className='text-2xl text-center text-cyan-900'>{item.strMeal}</div>
-        <div className='text-[16px] m-2 mx-10 bg-amber-500 w-fit text-white px-2 py-1'>{item.strCategory}</div>
-        </div>
+        <div className='text-[18px] my-2 text-center text-cyan-900'>{item.strMeal}</div>
        
-        <div className='w-90 h-90 mx-auto bg-gray-100
-        '><img className='mx-auto w-80 py-5 rounded hover:scale-[110%_110%] transition-all' src={item.strMealThumb}/></div>
+        <div className='w-90 h-90 mx-auto relative bg-gray-100 my-2
+        '><img className='mx-auto w-80 py-5 rounded hover:scale-[110%_110%] transition-all' src={item.strMealThumb}/>
+        <div className='text-[14px] absolute bottom-[12px] right-[-20px] rounded m-2 mx-10 bg-rose-500 w-fit text-white px-2 py-1'>{item.strCategory}</div>
+        </div>
 
         <h3 className='text-2xl text-center bg-cyan-800 text-white p-2'>Ingredients</h3>
         <ul className='flex flex-col mb-5 justify-center max-sm:mx-[20%] mx-[40%] p-2'>
