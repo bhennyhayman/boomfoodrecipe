@@ -42,7 +42,7 @@ const Recipe = ({dishes}) => {
         <ul className='flex flex-col mb-5 justify-center max-sm:mx-[20%] mx-[40%] p-2'>
           {getIngredientsWithMeasures(mealDetails[0]).map((item, idx) => (
             <li className='flex' key={idx}>
-              <div className={`${idx % 2 === 0 ? "bg-gray-100 w-90": ""}`}>{item}</div>
+              <div className={`${idx % 2 === 0 ? "bg-gray-100 w-90 m-1 p-1 ": ""} px-5`}>{item}</div>
             </li>
           ))}
       </ul>
