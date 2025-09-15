@@ -23,25 +23,33 @@ const Home = ({dishes,setDishes}) => {
     getUniqueRandomMeals(10, setDishes);
   },[])
 
+
   useEffect(()=>{
     sessionStorage.removeItem('meal');
     sessionStorage.removeItem('results');
   },[]);
+
+
 
     
   return (
     <div>
       <Navbar />
       <SearchBar/>
-       <h3 className='text-center m-5 text-2xl'>Popular Menu and their Recipe</h3>
+       
 
        {/* {error && <div>{error}</div>} */}
 
-       {dishes.length > 0 && <>
+       {dishes.length > 0 ? <>
+       <h3 className='text-center m-5 text-2xl'>Popular Menu and their Recipe</h3>
         {dishes.map((food) => <React.Fragment key={food.idMeal}>
         <Foodcard food={food}/>
         </React.Fragment>)}
-       </>}
+       </>: <div className='min-h-screen'>
+       <div className='text-red-500 text-2xl text-center my-10'>Error fetching meals</div>
+        <div className='text-center'>ThemealDB is down...</div>
+       <div className='mx-auto w-fit p-5 mt-5 text-2xl text-cyan-950'>Please try again later</div>
+       </div>}
 
        <Footer />
 
