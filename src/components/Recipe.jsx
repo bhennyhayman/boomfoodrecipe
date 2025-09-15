@@ -5,7 +5,7 @@ import getIngredientsWithMeasures from '../utils/ingredients'
 import Footer from './Footer'
 import axios from 'axios'
 
-const Recipe = ({dishes}) => {
+const Recipe = () => {
 
   const location = useLocation();
   const mealId = location.search.slice(1).split("=")[1];
