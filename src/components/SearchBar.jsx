@@ -1,20 +1,28 @@
-import React,{useState} from 'react'
+import React,{useRef, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const SearchBar = () => {
   const [term,setTerm] = useState("");
-
   const navigate = useNavigate();
+
+  const input = useRef(null);
   
   function handleSearch(){
     if(!term) return;
     navigate(`/search?for=${term}`);
-  }
+  };
+
+  input.current?.addEventListener("keydown", (e)=> {
+   if(e.key === 'Enter'){
+    handleSearch();
+   }
+  })
+
 
   return (
     <div>
         <div className="flex justify-center items-center  mt-4">
-        <input className="w-[50vw] border-1 border-gray-200 px-2 focus:outline-0 py-1.5" 
+        <input ref={input} className="w-[50vw] border-1 border-gray-200 px-2 focus:outline-0 py-1.5" 
         type="text" 
         onChange={(e)=>setTerm(e.target.value)}
         value={term}

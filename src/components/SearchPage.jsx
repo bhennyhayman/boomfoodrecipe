@@ -34,7 +34,7 @@ export default function SearchPage() {
       <Navbar/>
       <div className="text-2xl text-center mt-3">Search Results for {term}</div>
 
-      {results.length > 0 ? <div className="md:grid-cols-2 grid lg:grid-cols-3">
+      {results ? <div className="md:grid-cols-2 grid lg:grid-cols-3">
       {results.map((item)=> <React.Fragment key={item.idMeal}>
         <div className="mx-auto border-1 border-gray-200 p-1 m-1 rounded bg-gray-200 w-90 mb-5">
         <div className="text-[18px] text-center py-2 text-cyan-900 font-extrabold">{item.strMeal}</div>
@@ -49,7 +49,10 @@ export default function SearchPage() {
         
         </div>
         </React.Fragment>)}
-      </div>: "No results"}
+      </div>: 
+      <>
+      <div className="text-3xl text-center mt-40">No results</div>
+      </>}
 
       <div className=" text-[16px] px-3 my-2 py-1 rounded bg-black text-white w-fit mx-auto"><Link to={'/'}>Go back</Link> </div>
     </div>
