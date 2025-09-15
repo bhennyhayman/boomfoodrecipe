@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from './components/Navbar'
+import Navbar from './Navbar'
 import { useLocation,Link } from 'react-router-dom'
-import getIngredientsWithMeasures from './utils/ingredients'
-import Footer from './components/Footer'
+import getIngredientsWithMeasures from '../utils/ingredients'
+import Footer from './Footer'
 
 const Recipe = ({dishes}) => {
 
@@ -11,15 +11,19 @@ const Recipe = ({dishes}) => {
   const [mealDetails,setMealDetails] = useState(null);
 
   useEffect(()=>{
-    
+
+    const cached = sessionStorage.getItem("meal");
+    if(cached) return setMealDetails(JSON.parse(cached));
+
     function getFoodDetails(){
       const data = dishes.filter((food)=> Number(food.idMeal) === Number(mealId));
+      console.log(data);
+      sessionStorage.setItem("meal",JSON.stringify(data));
       setMealDetails(data);
     }
     getFoodDetails();
 
   },[]);
-
 
   return (
     <div>
@@ -47,7 +51,9 @@ const Recipe = ({dishes}) => {
       </div>}
 
       <div className='bg-blue-500 w-fit mx-auto px-3 py-1.5 text-white'> 
-        <Link to={'/'}>Home</Link></div>
+        <Link to={'/'} onClick={()=>{
+          sessionStorage.removeItem("meal");
+        }}>Home</Link></div>
 
       <Footer />
       

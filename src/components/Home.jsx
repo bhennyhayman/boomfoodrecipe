@@ -23,6 +23,10 @@ const Home = ({dishes,setDishes}) => {
     getUniqueRandomMeals(10, setDishes);
   },[])
 
+  useEffect(()=>{
+    sessionStorage.removeItem('meal');
+  },[])
+
   return (
     <div>
       <Navbar />
