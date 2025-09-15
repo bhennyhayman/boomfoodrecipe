@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { useLocation,Link } from 'react-router-dom'
 import getIngredientsWithMeasures from '../utils/ingredients'
 import Footer from './Footer'
+import axios from 'axios'
 
 const Recipe = ({dishes}) => {
 
@@ -15,9 +16,9 @@ const Recipe = ({dishes}) => {
     const cached = sessionStorage.getItem("meal");
     if(cached) return setMealDetails(JSON.parse(cached));
 
-    function getFoodDetails(){
-      const data = dishes.filter((food)=> Number(food.idMeal) === Number(mealId));
-      console.log(data);
+    async function getFoodDetails(){
+      const meal = await axios.get(`${import.meta.env.VITE_MEAL_ID}${mealId}`)
+      const data = meal.data.meals;
       sessionStorage.setItem("meal",JSON.stringify(data));
       setMealDetails(data);
     }

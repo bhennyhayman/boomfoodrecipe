@@ -25,12 +25,14 @@ const Home = ({dishes,setDishes}) => {
 
   useEffect(()=>{
     sessionStorage.removeItem('meal');
-  },[])
+    sessionStorage.removeItem('results');
+  },[]);
 
+    
   return (
     <div>
       <Navbar />
-      <SearchBar />
+      <SearchBar/>
        <h3 className='text-center m-5 text-2xl'>Popular Menu and their Recipe</h3>
 
        {/* {error && <div>{error}</div>} */}
