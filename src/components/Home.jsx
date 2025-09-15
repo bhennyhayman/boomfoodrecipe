@@ -47,7 +47,6 @@ const Home = ({dishes,setDishes}) => {
         </React.Fragment>)}
        </>: <div className='min-h-screen'>
        <div className='text-red-500 text-2xl text-center my-10'>Error fetching meals</div>
-        <div className='text-center'>ThemealDB is down...</div>
        <div className='mx-auto w-fit p-5 mt-5 text-2xl text-cyan-950'>Please try again later</div>
        </div>}
 
