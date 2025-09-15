@@ -12,10 +12,14 @@ const Recipe = () => {
   const [mealDetails,setMealDetails] = useState(null);
 
   useEffect(()=>{
+   const cached = sessionStorage.getItem('meal');
+   if(cached){
+    return setMealDetails(JSON.parse(cached));
+   }
+  },[])
 
-    const cached = sessionStorage.getItem("meal");
-    if(cached) return setMealDetails(JSON.parse(cached));
 
+  useEffect(()=>{
     async function getFoodDetails(){
       const meal = await axios.get(`${import.meta.env.VITE_MEAL_ID}${mealId}`)
       const data = meal.data.meals;
@@ -25,7 +29,7 @@ const Recipe = () => {
     getFoodDetails();
 
   },[]);
-  console.log(mealDetails);
+
 
   return (
     <div>
