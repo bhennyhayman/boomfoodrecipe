@@ -7,6 +7,7 @@ const Footer = () => {
       <div className="mt-20">Copyright @2025</div> 
       <p>A food recipe website</p>
       <h4 className="">Ben - Boom projects</h4>
+      <h5>Data provided by TheMealDB</h5>
     </footer>
     </div>
   )
